@@ -1,12 +1,10 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>My New Hugo Site</title>
-        <link>http://KFCxMcDonalds.github.io/</link>
-        <description>This is my cool site</description>
+        <title>All Posts - My New Hugo Site</title>
+        <link>http://KFCxMcDonalds.github.io/posts/</link>
+        <description>All Posts | My New Hugo Site</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>liwen.wu0821@outlook.com (Liwen Wu)</managingEditor>
-            <webMaster>liwen.wu0821@outlook.com (Liwen Wu)</webMaster><lastBuildDate>Mon, 08 Aug 2022 00:56:40 &#43;0800</lastBuildDate>
-            <atom:link href="http://KFCxMcDonalds.github.io/index.xml" rel="self" type="application/rss+xml" />
-        <item>
+            <webMaster>liwen.wu0821@outlook.com (Liwen Wu)</webMaster><lastBuildDate>Mon, 08 Aug 2022 00:56:40 &#43;0800</lastBuildDate><atom:link href="http://KFCxMcDonalds.github.io/posts/" rel="self" type="application/rss+xml" /><item>
     <title>Firt_post</title>
     <link>http://KFCxMcDonalds.github.io/posts/firt_post/</link>
     <pubDate>Mon, 08 Aug 2022 00:56:40 &#43;0800</pubDate>
