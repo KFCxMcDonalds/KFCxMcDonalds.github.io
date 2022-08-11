@@ -10,6 +10,15 @@
     <webMaster>liwen.wu0821@outlook.com (Liwen Wu)</webMaster>
     <lastBuildDate>Mon, 08 Aug 2022 00:56:40 +0800</lastBuildDate><atom:link href="http://KFCxMcDonalds.github.io/study_posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>主题文档 - 基本概念</title>
+      <link>http://KFCxMcDonalds.github.io/study_posts/1234/</link>
+      <pubDate>Fri, 06 Mar 2020 21:40:32 +0800</pubDate>
+      <author>liwen.wu0821@outlook.com (Liwen Wu)</author>
+      <guid>http://KFCxMcDonalds.github.io/study_posts/1234/</guid>
+      <description>&lt;p&gt;探索 Hugo - &lt;strong&gt;LoveIt&lt;/strong&gt; 主题的全部内容和背后的核心概念.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Firt_post</title>
       <link>http://KFCxMcDonalds.github.io/study_posts/firt_post/</link>
       <pubDate>Mon, 08 Aug 2022 00:56:40 +0800</pubDate>
