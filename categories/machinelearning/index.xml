@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>machineLearning - Category - Liwen</title>
+        <link>http://KFCxMcDonalds.github.io/categories/machinelearning/</link>
+        <description>machineLearning - Category - Liwen</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>liwen.wu0821@outlook.com (Liwen Wu)</managingEditor>
+            <webMaster>liwen.wu0821@outlook.com (Liwen Wu)</webMaster><lastBuildDate>Mon, 08 Aug 2022 00:56:40 &#43;0800</lastBuildDate><atom:link href="http://KFCxMcDonalds.github.io/categories/machinelearning/" rel="self" type="application/rss+xml" /><item>
+    <title>Firt_post</title>
+    <link>http://KFCxMcDonalds.github.io/study_posts/firt_post/</link>
+    <pubDate>Mon, 08 Aug 2022 00:56:40 &#43;0800</pubDate>
+    <author>Liwen Wu</author>
+    <guid>http://KFCxMcDonalds.github.io/study_posts/firt_post/</guid>
+    <description><![CDATA[这是一个实例文件]]></description>
+</item>
+</channel>
+</rss>

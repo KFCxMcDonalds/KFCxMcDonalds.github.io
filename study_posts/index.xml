@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Study_posts on Liwen</title>
+    <link>http://KFCxMcDonalds.github.io/study_posts/</link>
+    <description>Recent content in Study_posts on Liwen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>liwen.wu0821@outlook.com (Liwen Wu)</managingEditor>
+    <webMaster>liwen.wu0821@outlook.com (Liwen Wu)</webMaster>
+    <lastBuildDate>Mon, 08 Aug 2022 00:56:40 +0800</lastBuildDate><atom:link href="http://KFCxMcDonalds.github.io/study_posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Firt_post</title>
+      <link>http://KFCxMcDonalds.github.io/study_posts/firt_post/</link>
+      <pubDate>Mon, 08 Aug 2022 00:56:40 +0800</pubDate>
+      <author>liwen.wu0821@outlook.com (Liwen Wu)</author>
+      <guid>http://KFCxMcDonalds.github.io/study_posts/firt_post/</guid>
+      <description>这是一个实例文件</description>
+    </item>
+    
+    <item>
+      <title>网站维护</title>
+      <link>http://KFCxMcDonalds.github.io/study_posts/%E7%BD%91%E7%AB%99%E7%BB%B4%E6%8A%A4/</link>
+      <pubDate>Mon, 08 Aug 2022 00:56:40 +0800</pubDate>
+      <author>liwen.wu0821@outlook.com (Liwen Wu)</author>
+      <guid>http://KFCxMcDonalds.github.io/study_posts/%E7%BD%91%E7%AB%99%E7%BB%B4%E6%8A%A4/</guid>
+      <description>网站维护 push本地内容到github Step1: 查看工程代码做了什么修改🇹🇼 Step2: 更新修改的代码 add😂 $\sum_1^2x +y = z$ $$ a+b - c\c+2=3 $$ vhuyin: [Hugo]^(一个开源框架</description>
+    </item>
+    
+  </channel>
+</rss>

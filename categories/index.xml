@@ -1,8 +1,32 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Categories - Category - My New Hugo Site</title>
+        <title>Categories - Category - Liwen</title>
         <link>http://KFCxMcDonalds.github.io/categories/</link>
-        <description>Categories - Category - My New Hugo Site</description>
+        <description>Categories - Category - Liwen</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>liwen.wu0821@outlook.com (Liwen Wu)</managingEditor>
-            <webMaster>liwen.wu0821@outlook.com (Liwen Wu)</webMaster><atom:link href="http://KFCxMcDonalds.github.io/categories/" rel="self" type="application/rss+xml" /></channel>
+            <webMaster>liwen.wu0821@outlook.com (Liwen Wu)</webMaster><lastBuildDate>Mon, 08 Aug 2022 00:56:40 &#43;0800</lastBuildDate><atom:link href="http://KFCxMcDonalds.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>123</title>
+    <link>http://KFCxMcDonalds.github.io/categories/123/</link>
+    <pubDate>Mon, 08 Aug 2022 00:56:40 &#43;0800</pubDate>
+    <author>Liwen Wu</author>
+    <guid>http://KFCxMcDonalds.github.io/categories/123/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Life</title>
+    <link>http://KFCxMcDonalds.github.io/categories/life/</link>
+    <pubDate>Mon, 08 Aug 2022 00:56:40 &#43;0800</pubDate>
+    <author>Liwen Wu</author>
+    <guid>http://KFCxMcDonalds.github.io/categories/life/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>machineLearning</title>
+    <link>http://KFCxMcDonalds.github.io/categories/machinelearning/</link>
+    <pubDate>Mon, 08 Aug 2022 00:56:40 &#43;0800</pubDate>
+    <author>Liwen Wu</author>
+    <guid>http://KFCxMcDonalds.github.io/categories/machinelearning/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
 </rss>
