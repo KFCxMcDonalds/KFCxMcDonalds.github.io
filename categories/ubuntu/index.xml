@@ -6,10 +6,10 @@
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>liwen.wu0821@outlook.com (Liwen Wu)</managingEditor>
             <webMaster>liwen.wu0821@outlook.com (Liwen Wu)</webMaster><lastBuildDate>Fri, 02 Sep 2022 14:54:53 &#43;0800</lastBuildDate><atom:link href="http://KFCxMcDonalds.github.io/categories/ubuntu/" rel="self" type="application/rss+xml" /><item>
     <title>Ubuntu系统代理设置/JMS/Clash</title>
-    <link>http://KFCxMcDonalds.github.io/study_posts/ubuntu%E7%B3%BB%E7%BB%9F%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/</link>
+    <link>http://KFCxMcDonalds.github.io/ubuntu%E7%B3%BB%E7%BB%9F%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/</link>
     <pubDate>Fri, 02 Sep 2022 14:54:53 &#43;0800</pubDate>
     <author>Liwen Wu</author>
-    <guid>http://KFCxMcDonalds.github.io/study_posts/ubuntu%E7%B3%BB%E7%BB%9F%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/</guid>
+    <guid>http://KFCxMcDonalds.github.io/ubuntu%E7%B3%BB%E7%BB%9F%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/</guid>
     <description><![CDATA[<h2 id="引">引</h2>
 <p>​    入学拿到一台主机，自己装了Ubuntu系统，常年在网络畅游的我发现竟然不能用Google搜索，连Chrome同步收藏夹都不行，于是折腾开始在Ubuntu上装代理。</p>
 <h2 id="准备工作">准备工作</h2>
