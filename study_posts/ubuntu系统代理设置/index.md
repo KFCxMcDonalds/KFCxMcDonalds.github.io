@@ -193,9 +193,9 @@ cd ~/clash
 
 {{< image src="/images/Ubuntu系统代理设置/成功信息.png" caption="成功信息">}}
 
-倒数第三行对应设置里的HTTP（HTTPS跟HTTP保持一致就行）
+倒数第二对应设置里的HTTP（HTTPS跟HTTP保持一致就行）
 
-倒数第二行对应设置里的Socks主机
+倒数第一行对应设置里的Socks主机
 
 <font size=5 color='IndianRed'>到这里整个配置就完成了，可以任意访问你想访问的网站了。</font>
 
