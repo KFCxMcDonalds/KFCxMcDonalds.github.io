@@ -4,7 +4,88 @@
         <link>http://KFCxMcDonalds.github.io/tags/raspberrypi/</link>
         <description>RaspberryPi - Tag - Liwen</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>liwen.wu0821@outlook.com (Liwen Wu)</managingEditor>
-            <webMaster>liwen.wu0821@outlook.com (Liwen Wu)</webMaster><copyright>Copyright © 2022 Liwen Wu. All rights reserved.</copyright><lastBuildDate>Sat, 11 Feb 2023 18:16:53 &#43;0800</lastBuildDate><atom:link href="http://KFCxMcDonalds.github.io/tags/raspberrypi/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>liwen.wu0821@outlook.com (Liwen Wu)</webMaster><copyright>Copyright © 2022 Liwen Wu. All rights reserved.</copyright><lastBuildDate>Sat, 11 Feb 2023 18:52:53 &#43;0800</lastBuildDate><atom:link href="http://KFCxMcDonalds.github.io/tags/raspberrypi/" rel="self" type="application/rss+xml" /><item>
+    <title>Mac远程桌面连接树莓派</title>
+    <link>http://KFCxMcDonalds.github.io/articles/mac%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5%E6%A0%91%E8%8E%93%E6%B4%BE/</link>
+    <pubDate>Sat, 11 Feb 2023 18:52:53 &#43;0800</pubDate>
+    <author>Liwen Wu</author>
+    <guid>http://KFCxMcDonalds.github.io/articles/mac%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5%E6%A0%91%E8%8E%93%E6%B4%BE/</guid>
+    <description><![CDATA[<h1 id="mac远程桌面连接树莓派">Mac远程桌面连接树莓派</h1>
+<p>通过ssh连接启用树莓派的远程桌面功能。</p>
+<p>通过前面几步已经完成了成功打开树莓派并ssh连接了，接下来将用Remote Desktop连接树莓派使用。</p>
+<h2 id="1-安装远程桌面插件并启用">1 安装远程桌面插件并启用</h2>
+<p>更新apt-get：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">sudo apt-get updata 
+</code></pre></td></tr></table>
+</div>
+</div><p>安装远程桌面插件xrdp，等待完成。
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">如果无法安装，可能是网络原因，最好是将树莓派换源，可以大大加快下载速度。</div>
+        </div>
+    </div></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">sudo apt-get install xrdp
+</code></pre></td></tr></table>
+</div>
+</div><p>启动服务：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">sudo service xrdp restart
+</code></pre></td></tr></table>
+</div>
+</div><p>完成之后，就可以使用Mac上的软件远程连接桌面了。</p>
+<h2 id="2-远程桌面软件">2 远程桌面软件</h2>
+<p>我使用的是<code>microsoft remote desktop</code></p>
+
+<ol>
+<li>
+<p>点击加号新建连接</p>
+  
+</li>
+<li>
+<p>输入树莓派的ip地址</p>
+  
+</li>
+<li>
+<p>点击save然后双击窗口后输入用户名和密码后即可成功连接</p>
+</li>
+</ol>
+
+<ol start="4">
+<li>以后每次连接都需要输入一次用户名密码比较麻烦，所以在Remote Desktop中保存用户信息：</li>
+</ol>
+<ul>
+<li>点击修改</li>
+</ul>
+
+<ul>
+<li>添加用户信息</li>
+</ul>
+
+<ul>
+<li>输入用户名和密码</li>
+</ul>
+<p>用远程桌面登陆时如果出现蓝屏问题，请参考文章<a href="https://blog.csdn.net/u011983700/article/details/128330740?spm=1001.2014.3001.5506" target="_blank" rel="noopener noreffer ">树莓派安装远程桌面，并解决远程登录蓝屏的问题</a>。</p>
+<h2 id="结束">结束</h2>
+<p>转载请注明出处：<a href="www.liwenwu.space" rel="">www.liwenwu.space</a></p>]]></description>
+</item>
+<item>
     <title>Mac使用ssh无网线连接树莓派</title>
     <link>http://KFCxMcDonalds.github.io/articles/mac%E4%BD%BF%E7%94%A8ssh%E6%97%A0%E7%BD%91%E7%BA%BF%E8%BF%9E%E6%8E%A5%E6%A0%91%E8%8E%93%E6%B4%BE/</link>
     <pubDate>Sat, 11 Feb 2023 18:16:53 &#43;0800</pubDate>
@@ -129,7 +210,7 @@ Nmap <span class="k">done</span>: <span class="m">256</span> IP addresses <span 
 </ul>
 <p></p>
 <p>显示以上界面表示连接成功，已经可以使用树莓派的命令行功能了。</p>
-<p>至此本文结束。如果需要远程连接桌面，还需要用ssh执行一些列命令，具体见下一片文章。</p>
+<p>至此本文结束。如果需要远程连接桌面，还需要用ssh执行一些列命令，具体见下一篇文章。</p>
 <h2 id="结束">结束</h2>
 <p>转载请注明出处：<a href="www.liwenwu.space" rel="">www.liwenwu.space</a></p>
 <p>如果对文章有疑问请留言。</p>]]></description>
