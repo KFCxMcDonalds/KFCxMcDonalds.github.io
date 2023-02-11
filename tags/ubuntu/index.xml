@@ -4,12 +4,12 @@
         <link>http://KFCxMcDonalds.github.io/tags/ubuntu/</link>
         <description>Ubuntu - Tag - Liwen</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>liwen.wu0821@outlook.com (Liwen Wu)</managingEditor>
-            <webMaster>liwen.wu0821@outlook.com (Liwen Wu)</webMaster><lastBuildDate>Fri, 02 Sep 2022 14:54:53 &#43;0800</lastBuildDate><atom:link href="http://KFCxMcDonalds.github.io/tags/ubuntu/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>liwen.wu0821@outlook.com (Liwen Wu)</webMaster><copyright>Copyright © 2022 Liwen Wu. All rights reserved.</copyright><lastBuildDate>Fri, 02 Sep 2022 14:54:53 &#43;0800</lastBuildDate><atom:link href="http://KFCxMcDonalds.github.io/tags/ubuntu/" rel="self" type="application/rss+xml" /><item>
     <title>Ubuntu系统代理设置/JMS/Clash</title>
-    <link>http://KFCxMcDonalds.github.io/ubuntu%E7%B3%BB%E7%BB%9F%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/</link>
+    <link>http://KFCxMcDonalds.github.io/articles/ubuntu%E7%B3%BB%E7%BB%9F%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/</link>
     <pubDate>Fri, 02 Sep 2022 14:54:53 &#43;0800</pubDate>
     <author>Liwen Wu</author>
-    <guid>http://KFCxMcDonalds.github.io/ubuntu%E7%B3%BB%E7%BB%9F%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/</guid>
+    <guid>http://KFCxMcDonalds.github.io/articles/ubuntu%E7%B3%BB%E7%BB%9F%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/</guid>
     <description><![CDATA[<h2 id="引">引</h2>
 <p>​    入学拿到一台主机，自己装了Ubuntu系统，常年在网络畅游的我发现竟然不能用Google搜索，连Chrome同步收藏夹都不行，于是折腾开始在Ubuntu上装代理。</p>
 <h2 id="准备工作">准备工作</h2>
@@ -264,7 +264,7 @@ mv clash_jms2.yaml clash.yaml
 <p>转载请注明出处：<a href="www.liwenwu.space" rel="">www.liwenwu.space</a></p>
 <h3 id="参考文章">参考文章：</h3>
 <p><a href="https://v2xtls.org/clashx%e9%85%8d%e7%bd%aejust-my-socks%e6%95%99%e7%a8%8b/" target="_blank" rel="noopener noreffer ">ClashX配置Just My Socks教程</a></p>
-<p><a href="icode9.com/content-3-1040233.html" rel="">Clash 在Ubuntu下新手使用教程</a></p>
+<p><a href="https://icode9.com/content-3-1040233.html" target="_blank" rel="noopener noreffer ">Clash 在Ubuntu下新手使用教程</a></p>
 <p>如果有任何错误请留言。</p>]]></description>
 </item>
 </channel>

@@ -2,12 +2,16 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>http://KFCxMcDonalds.github.io/categories/</loc><lastmod>2022-09-02T14:54:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://KFCxMcDonalds.github.io/tags/clash/</loc><lastmod>2022-09-02T14:54:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://KFCxMcDonalds.github.io/</loc><lastmod>2022-09-02T14:54:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://KFCxMcDonalds.github.io/posts/</loc><lastmod>2022-09-02T14:54:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://KFCxMcDonalds.github.io/tags/</loc><lastmod>2022-09-02T14:54:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://KFCxMcDonalds.github.io/tags/ubuntu/</loc><lastmod>2022-09-02T14:54:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://KFCxMcDonalds.github.io/categories/ubuntu/</loc><lastmod>2022-09-02T14:54:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://KFCxMcDonalds.github.io/ubuntu%E7%B3%BB%E7%BB%9F%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/</loc><lastmod>2022-09-02T14:54:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://KFCxMcDonalds.github.io/about/</loc><lastmod>2022-08-07T23:50:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url></urlset>
+            <loc>http://KFCxMcDonalds.github.io/articles/</loc><lastmod>2023-02-11T12:54:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://KFCxMcDonalds.github.io/categories/</loc><lastmod>2023-02-11T12:54:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://KFCxMcDonalds.github.io/tags/linux/</loc><lastmod>2023-02-11T12:54:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://KFCxMcDonalds.github.io/</loc><lastmod>2023-02-11T12:54:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://KFCxMcDonalds.github.io/categories/raspberrypi/</loc><lastmod>2023-02-11T12:54:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://KFCxMcDonalds.github.io/tags/raspberrypi/</loc><lastmod>2023-02-11T12:54:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://KFCxMcDonalds.github.io/tags/</loc><lastmod>2023-02-11T12:54:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://KFCxMcDonalds.github.io/articles/%E5%88%9D%E8%A7%81%E6%A0%91%E8%8E%93%E6%B4%BE%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/</loc><lastmod>2023-02-11T12:54:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://KFCxMcDonalds.github.io/tags/clash/</loc><lastmod>2022-09-02T14:54:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://KFCxMcDonalds.github.io/tags/ubuntu/</loc><lastmod>2022-09-02T14:54:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://KFCxMcDonalds.github.io/categories/ubuntu/</loc><lastmod>2022-09-02T14:54:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://KFCxMcDonalds.github.io/articles/ubuntu%E7%B3%BB%E7%BB%9F%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE/</loc><lastmod>2022-09-02T14:54:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://KFCxMcDonalds.github.io/about/</loc><lastmod>2022-08-07T23:50:57&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url></urlset>
