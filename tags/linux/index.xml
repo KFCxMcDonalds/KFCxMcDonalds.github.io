@@ -4,7 +4,137 @@
         <link>http://KFCxMcDonalds.github.io/tags/linux/</link>
         <description>Linux - Tag - Liwen</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>liwen.wu0821@outlook.com (Liwen Wu)</managingEditor>
-            <webMaster>liwen.wu0821@outlook.com (Liwen Wu)</webMaster><copyright>Copyright © 2022 Liwen Wu. All rights reserved.</copyright><lastBuildDate>Sat, 11 Feb 2023 17:33:53 &#43;0800</lastBuildDate><atom:link href="http://KFCxMcDonalds.github.io/tags/linux/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>liwen.wu0821@outlook.com (Liwen Wu)</webMaster><copyright>Copyright © 2022 Liwen Wu. All rights reserved.</copyright><lastBuildDate>Sat, 11 Feb 2023 18:16:53 &#43;0800</lastBuildDate><atom:link href="http://KFCxMcDonalds.github.io/tags/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>Mac使用ssh无网线连接树莓派</title>
+    <link>http://KFCxMcDonalds.github.io/articles/mac%E4%BD%BF%E7%94%A8ssh%E6%97%A0%E7%BD%91%E7%BA%BF%E8%BF%9E%E6%8E%A5%E6%A0%91%E8%8E%93%E6%B4%BE/</link>
+    <pubDate>Sat, 11 Feb 2023 18:16:53 &#43;0800</pubDate>
+    <author>Liwen Wu</author>
+    <guid>http://KFCxMcDonalds.github.io/articles/mac%E4%BD%BF%E7%94%A8ssh%E6%97%A0%E7%BD%91%E7%BA%BF%E8%BF%9E%E6%8E%A5%E6%A0%91%E8%8E%93%E6%B4%BE/</guid>
+    <description><![CDATA[<h1 id="mac使用ssh无网线连接树莓派">Mac使用ssh无网线连接树莓派</h1>
+<p>不使用鼠标键盘和网线通过ssh连接树莓派</p>
+<h2 id="前提">前提</h2>
+<p>树莓派开机后自动连接好WiFi并开启ssh服务，具体文章见<a href="https://www.liwenwu.space/articles/%E5%88%9D%E8%A7%81%E6%A0%91%E8%8E%93%E6%B4%BE%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/" target="_blank" rel="noopener noreffer ">初见树莓派：系统安装</a>或<a href="https://www.liwenwu.space/articles/%E6%A0%91%E8%8E%93%E6%B4%BEWiFi%E8%BF%9E%E6%8E%A5%E5%92%8C%E5%BC%80%E5%90%AFssh" target="_blank" rel="noopener noreffer ">树莓派WiFi连接和开启ssh</a>。</p>
+<h2 id="1-连接步骤">1 连接步骤</h2>
+<ul>
+<li>搜索树莓派IP地址</li>
+<li>ssh远程连接树莓派terminal</li>
+</ul>
+<h3 id="11-搜索树莓派ip地址">1.1 搜索树莓派IP地址</h3>
+<p>本文面向不使用键盘和屏幕连接树莓派的读者，所以需要使用电脑或路由器来查找同一网络下树莓派的IP。这里介绍常用的几种方式，更多可以查看<a href="https://www.raspberrypi.com/documentation/computers/remote-access.html#how-to-find-your-ip-address" target="_blank" rel="noopener noreffer ">官网doc</a></p>
+<h4 id="路由器">🦁路由器</h4>
+<p>浏览器打开路由器地址:<code>192.168.1.1</code>，登陆路由器账户并进入控制面板。</p>
+<p>打开<code>已连接设备列表</code>，可以看到连接到本路由器的所有设备，通过排除能够认识的设备，比如电脑、打印机、手机等，找到树莓派的IP地址。</p>
+<h4 id="使用支持mdns的设备查找">🐱使用支持mDNS的设备查找</h4>
+<p>如果你的设备支持mDNS，那么可以通过ping树莓派的主机名来查找IP</p>
+<div class="details admonition info open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw" aria-hidden="true"></i>Info<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">主机名可以在安装系统时在<a href="https://www.raspberrypi.com/software/" target="_blank" rel="noopener noreffer ">Imager</a>的Advance Option中设置，详见文章<a href="https://www.liwenwu.space/articles/%E5%88%9D%E8%A7%81%E6%A0%91%E8%8E%93%E6%B4%BE%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/" target="_blank" rel="noopener noreffer ">初见树莓派：系统安装</a>，默认为raspberry.local）：</div>
+        </div>
+    </div>
+<p>用网线连接电脑和树莓派，输入命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">ping raspberry.local
+</code></pre></td></tr></table>
+</div>
+</div><p>如果可以找到该主机名，那么ping命令将显示ping到的地址：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">PING raspberry.local <span class="o">(</span>192.168.1.131<span class="o">)</span>: <span class="m">56</span> data bytes
+<span class="m">64</span> bytes from 192.168.1.131: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">0</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">255</span> <span class="nv">time</span><span class="o">=</span>2.618 ms
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="nmap命令">🐯nmap命令</h4>
+<h5 id="font-colorred安装font"><font color='red'>安装</font></h5>
+<p>nmap(Network Mapper)是一个开源的网络查找工具。</p>
+<ul>
+<li>Linux在命令行输入<code>apt install nmap</code>下载</li>
+<li>macOS和Windows的下载请查看<a href="https://nmap.org/download.html" target="_blank" rel="noopener noreffer ">nmap官网</a></li>
+</ul>
+<h5 id="font-colorred使用font"><font color='red'>使用</font></h5>
+<p>要使用nmap查找树莓派的IP，首先需要知道你电脑的本机IP地址。</p>
+<ul>
+<li>Linux在命令行输入<code>hostname -I</code></li>
+<li>macOS<code>系统设置-网络-详细信息- IP地址</code></li>
+</ul>
+
+<ul>
+<li>Windows<code>控制面板-网络-显示网络连接-选择网络-显示连接信息</code></li>
+</ul>
+<p>然后使用nmap查找本网段中的所有设备，比如你的本机IP为192.168.1.4，那么输入命令：<code>nmap -sn 192.168.1.0/24</code></p>
+<p>得到信息：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">Starting Nmap 6.40 <span class="o">(</span> http://nmap.org <span class="o">)</span> at 2014-03-10 12:46 GMT
+Nmap scan report <span class="k">for</span> hpprinter <span class="o">(</span>192.168.1.2<span class="o">)</span>
+Host is up <span class="o">(</span>0.00044s latency<span class="o">)</span>.
+Nmap scan report <span class="k">for</span> Gordons-MBP <span class="o">(</span>192.168.1.4<span class="o">)</span>
+Host is up <span class="o">(</span>0.0010s latency<span class="o">)</span>.
+Nmap scan report <span class="k">for</span> ubuntu <span class="o">(</span>192.168.1.5<span class="o">)</span>
+Host is up <span class="o">(</span>0.0010s latency<span class="o">)</span>.
+Nmap scan report <span class="k">for</span> raspberrypi <span class="o">(</span>192.168.1.8<span class="o">)</span>
+Host is up <span class="o">(</span>0.0030s latency<span class="o">)</span>.
+Nmap <span class="k">done</span>: <span class="m">256</span> IP addresses <span class="o">(</span><span class="m">4</span> hosts up<span class="o">)</span> scanned in 2.41 seconds
+</code></pre></td></tr></table>
+</div>
+</div><p>即可看到树莓派的主机名及其IP地址。
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">该方法来自官网教程，但是本人在使用时亲测无法显示出主机的hostname，只有IP，并不能很好地识别出树莓派，不建议使用。</div>
+        </div>
+    </div></p>
+<h4 id="软件搜索">🐶软件搜索</h4>
+<p>手机可以使用软件<font color='blue'>Fing</font>，查找本地网络中的树莓派。</p>
+<p>macOS我使用的免费的<font color='blue'>LanScan</font>，可以找到网络中的树莓派。</p>
+<p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">如果按照教程完成了操作系统的安装和网络的配置还是找不到树莓派IP的话，可能是提供给树莓派的<font color='red'>电源电压不足</font>，必须是5V3A，如果电源功率不足黄灯可能规律的2次闪烁或者亮度很低。
+正常启动的黄灯是不规律闪烁的，代表SD卡在写入读取数据。</div>
+        </div>
+    </div></p>
+<h3 id="12-ssh连接树莓派">1.2 ssh连接树莓派</h3>
+<p>打开terminal，输入<code>ssh 用户名@ip地址</code>，会要求输入密码，输入后即可连接成功。</p>
+<ul>
+<li>如果用Imager写入的系统，那么登陆时就使用当时设置的用户名和密码</li>
+<li>如果是老版本自己写入的镜像，那么默认用户名为<code>pi</code>，密码是<code>raspberry</code></li>
+</ul>
+<p></p>
+<p>显示以上界面表示连接成功，已经可以使用树莓派的命令行功能了。</p>
+<p>至此本文结束。如果需要远程连接桌面，还需要用ssh执行一些列命令，具体见下一片文章。</p>
+<h2 id="结束">结束</h2>
+<p>转载请注明出处：<a href="www.liwenwu.space" rel="">www.liwenwu.space</a></p>
+<p>如果对文章有疑问请留言。</p>]]></description>
+</item>
+<item>
     <title>树莓派WiFi连接和开启ssh</title>
     <link>http://KFCxMcDonalds.github.io/articles/%E6%A0%91%E8%8E%93%E6%B4%BEwifi%E8%BF%9E%E6%8E%A5%E5%92%8C%E5%BC%80%E5%90%AFssh/</link>
     <pubDate>Sat, 11 Feb 2023 17:33:53 &#43;0800</pubDate>
@@ -93,10 +223,15 @@
 </div>
 </div><h2 id="2-树莓派自动开启ssh">2 树莓派自动开启ssh</h2>
 <p>2016.11.25之后的老版本系统镜像，ssh服务是默认关闭的。</p>
-<p>打开SD卡根目录，新建<code>ssh</code>文件，<font color="purple">文件无后缀</font>。即可在下次树莓派开机时自动打开ssh服务。</p>
-<blockquote>
-<p>注意：打开树莓派后，一定要设置以后开机自启ssh服务，不然重启后还是会自动关闭，又需要插拔SD卡新建ssh文件才能使用。</p>
-</blockquote>
+<p>打开SD卡根目录，新建空白文件<code>ssh</code>，<font color="purple">文件无后缀</font>。即可在下次树莓派开机时自动打开ssh服务。</p>
+<div class="details admonition note open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-pencil-alt fa-fw" aria-hidden="true"></i>Note<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">注意：打开树莓派后，一定要设置以后开机自启ssh服务，不然重启后还是会自动关闭，又需要插拔SD卡新建ssh文件才能使用。</div>
+        </div>
+    </div>
 <h2 id="结束">结束</h2>
 <p>转载请注明出处：<a href="www.liwenwu.space" rel="">www.liwenwu.space</a></p>
 <p>如果对文章有疑问请留言。</p>]]></description>

@@ -9,7 +9,16 @@
     <managingEditor>liwen.wu0821@outlook.com (Liwen Wu)</managingEditor>
     <webMaster>liwen.wu0821@outlook.com (Liwen Wu)</webMaster>
     <copyright>Copyright © 2022 Liwen Wu. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 11 Feb 2023 17:33:53 +0800</lastBuildDate><atom:link href="http://KFCxMcDonalds.github.io/articles/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Feb 2023 18:16:53 +0800</lastBuildDate><atom:link href="http://KFCxMcDonalds.github.io/articles/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mac使用ssh无网线连接树莓派</title>
+      <link>http://KFCxMcDonalds.github.io/articles/mac%E4%BD%BF%E7%94%A8ssh%E6%97%A0%E7%BD%91%E7%BA%BF%E8%BF%9E%E6%8E%A5%E6%A0%91%E8%8E%93%E6%B4%BE/</link>
+      <pubDate>Sat, 11 Feb 2023 18:16:53 +0800</pubDate>
+      <author>liwen.wu0821@outlook.com (Liwen Wu)</author>
+      <guid>http://KFCxMcDonalds.github.io/articles/mac%E4%BD%BF%E7%94%A8ssh%E6%97%A0%E7%BD%91%E7%BA%BF%E8%BF%9E%E6%8E%A5%E6%A0%91%E8%8E%93%E6%B4%BE/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>树莓派WiFi连接和开启ssh</title>
       <link>http://KFCxMcDonalds.github.io/articles/%E6%A0%91%E8%8E%93%E6%B4%BEwifi%E8%BF%9E%E6%8E%A5%E5%92%8C%E5%BC%80%E5%90%AFssh/</link>
