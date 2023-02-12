@@ -9,7 +9,16 @@
     <managingEditor>liwen.wu0821@outlook.com (Liwen Wu)</managingEditor>
     <webMaster>liwen.wu0821@outlook.com (Liwen Wu)</webMaster>
     <copyright>Copyright © 2022 Liwen Wu. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 11 Feb 2023 18:52:53 +0800</lastBuildDate><atom:link href="http://KFCxMcDonalds.github.io/articles/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 13 Feb 2023 01:37:53 +0800</lastBuildDate><atom:link href="http://KFCxMcDonalds.github.io/articles/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>树莓派安装miniconda</title>
+      <link>http://KFCxMcDonalds.github.io/articles/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%89%E8%A3%85miniconda/</link>
+      <pubDate>Mon, 13 Feb 2023 01:37:53 +0800</pubDate>
+      <author>liwen.wu0821@outlook.com (Liwen Wu)</author>
+      <guid>http://KFCxMcDonalds.github.io/articles/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%89%E8%A3%85miniconda/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Mac远程桌面连接树莓派</title>
       <link>http://KFCxMcDonalds.github.io/articles/mac%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5%E6%A0%91%E8%8E%93%E6%B4%BE/</link>

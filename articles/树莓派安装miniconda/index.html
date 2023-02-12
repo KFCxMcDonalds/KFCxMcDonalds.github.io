@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>树莓派安装miniconda - Liwen</title><meta name="Description" content="树莓派 4B 安装miniconda3"><meta property="og:title" content="树莓派安装miniconda" />
+<meta property="og:description" content="树莓派 4B 安装miniconda3" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://KFCxMcDonalds.github.io/articles/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%89%E8%A3%85miniconda/" /><meta property="og:image" content="http://KFCxMcDonalds.github.io/logo.png"/><meta property="article:section" content="articles" />
+<meta property="article:published_time" content="2023-02-13T01:37:53+08:00" />
+<meta property="article:modified_time" content="2023-02-13T01:37:53+08:00" /><meta property="og:site_name" content="Liwen&#39;s Desk" />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://KFCxMcDonalds.github.io/logo.png"/>
+
+<meta name="twitter:title" content="树莓派安装miniconda"/>
+<meta name="twitter:description" content="树莓派 4B 安装miniconda3"/>
+<meta name="application-name" content="Liwen&#39;s Desk">
+<meta name="apple-mobile-web-app-title" content="Liwen&#39;s Desk"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="logo.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://KFCxMcDonalds.github.io/articles/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%89%E8%A3%85miniconda/" /><link rel="prev" href="http://KFCxMcDonalds.github.io/articles/mac%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E8%BF%9E%E6%8E%A5%E6%A0%91%E8%8E%93%E6%B4%BE/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "树莓派安装miniconda",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/KFCxMcDonalds.github.io\/articles\/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%89%E8%A3%85miniconda\/"
+        },"image": ["http:\/\/KFCxMcDonalds.github.io\/logo.png"],"genre": "articles","keywords": "RaspberryPi, Linux","wordcount":  1477 ,
+        "url": "http:\/\/KFCxMcDonalds.github.io\/articles\/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%89%E8%A3%85miniconda\/","datePublished": "2023-02-13T01:37:53+08:00","dateModified": "2023-02-13T01:37:53+08:00","license": "Copyright © 2022 Liwen Wu. All rights reserved.","publisher": {
+            "@type": "Organization",
+            "name": "LiwenWu","logo": "http:\/\/KFCxMcDonalds.github.io\/logo.png"},"author": {
+                "@type": "Person",
+                "name": "Liwen Wu"
+            },"description": "树莓派 4B 安装miniconda3"
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Liwen"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/logo.png"
+        data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+        data-sizes="auto"
+        alt="/logo.png"
+        title="/logo.png" />Liwen</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/articles/"> 文章 </a><a class="menu-item" href="/notes/"> 笔记 </a><a class="menu-item" href="/life/"> 生活 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Liwen"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/logo.png"
+        data-srcset="/logo.png, /logo.png 1.5x, /logo.png 2x"
+        data-sizes="auto"
+        alt="/logo.png"
+        title="/logo.png" />Liwen</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/articles/" title="">文章</a><a class="menu-item" href="/notes/" title="">笔记</a><a class="menu-item" href="/life/" title="">生活</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="page single special"><h1 class="single-title animate__animated animate__pulse animate__faster">树莓派安装miniconda</h1><div class="content" id="content"><h1 id="树莓派安装miniconda">树莓派安装miniconda</h1>
+<p>树莓派4B已经将处理器从arm架构换成了aarch64架构，所以能够使用最新的aarch64版本的miniconda了。但是参考部分文章并实测发现，当前4B不能兼容miniconda3 4.10以上的版本，所以本文使用4.9版本。</p>
+<p>4B以下版本请参考文章内容自行更改安装内容。</p>
+<h2 id="font-colorsky-blue前置步骤font"><font color='sky blue'>前置步骤</font></h2>
+<p>本部分主要引导读者查看本机的主要信息从而匹配最佳版本。</p>
+<h3 id="1---查看本机处理器架构">1   <strong>查看本机处理器架构</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">uname -a
+</code></pre></td></tr></table>
+</div>
+</div><figure><img src="/images/%e6%a0%91%e8%8e%93%e6%b4%be%e5%ae%89%e8%a3%85miniconda/uname.png" width="0.5"/>
+</figure>
+
+<p>红框的那一串就是你手上树莓派的架构。如果是4B并且用的<a href="https://www.raspberrypi.com/software/" target="_blank" rel="noopener noreffer ">Imager</a>安装的OS的话（详见文章<a href="https://www.liwenwu.space/articles/%E5%88%9D%E8%A7%81%E6%A0%91%E8%8E%93%E6%B4%BE%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/" target="_blank" rel="noopener noreffer ">初见树莓派：系统安装</a>），显示的内容跟本文的应该是差不多的。如果是老版本的树莓派，那么显示的内容可能如下：</p>
+<figure><img src="/images/%e6%a0%91%e8%8e%93%e6%b4%be%e5%ae%89%e8%a3%85miniconda/%e5%88%ab%e4%ba%ba%e7%9a%84.png" width="0.5"/>
+</figure>
+
+<p>说明你的架构是armv7l，他们两个使用的软件是完全不同的，不能混用。</p>
+<h3 id="2-查看本机python版本">2 <strong>查看本机python版本</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">python
+</code></pre></td></tr></table>
+</div>
+</div><figure><img src="/images/%e6%a0%91%e8%8e%93%e6%b4%be%e5%ae%89%e8%a3%85miniconda/py%e7%89%88%e6%9c%ac.png" width="0.5"/>
+</figure>
+
+<p>第一行就是你本机的python版本。</p>
+<h2 id="font-colorsky-blue主要步骤font"><font color='sky blue'>主要步骤</font></h2>
+<p>得到上面的信息后，就可以选择合适的miniconda版本下载了，假设现在terminal所在的位置是<code>/home/pi/</code></p>
+<h3 id="1-获取miniconda安装包">1 <strong>获取miniconda安装包</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">wget https://repo.anaconda.com/miniconda/Miniconda3-py37_4.9.2-Linux-aarch64.sh
+</code></pre></td></tr></table>
+</div>
+</div><p>​	输入该命令将会把上面链接的文件下载到terminal当前文件夹<code>/home/pi/</code>下。</p>
+<p>​	这个文件名表示该版本适合<font color='orange'><em>python3.7</em></font>，架构<font color='orange'><em>aarch64</em></font>的树莓派（Linux）安装，miniconda3的版本是4.9.2</p>
+<p>​	请读者根据自己机器的配置在<a href="https://repo.anaconda.com/miniconda/" target="_blank" rel="noopener noreffer ">这个网页</a>上寻找下载合适的版本，注意如果是aarch64架构那miniconda3的版本不要超过4.10。</p>
+<div class="details admonition info open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw" aria-hidden="true"></i>Info<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>如果你的架构是armv7l，那么应该下载的文件是：</p>
+<figure><img src="/images/%e6%a0%91%e8%8e%93%e6%b4%be%e5%ae%89%e8%a3%85miniconda/armv7l.png" height="1"/>
+</figure>
+</div>
+        </div>
+    </div>
+<h3 id="2-安装">2 <strong>安装</strong></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">sudo bash Miniconda3-py37_4.9.2-Linux-aarch64.sh
+</code></pre></td></tr></table>
+</div>
+</div><p>​	文件名是刚才找到的一样的文件名。</p>
+<h3 id="3--等待安装">3  <strong>等待安装</strong></h3>
+<p>​	安装过程中可能需要输入一些字符。请根据提示进行。</p>
+<figure><img src="/images/%e6%a0%91%e8%8e%93%e6%b4%be%e5%ae%89%e8%a3%85miniconda/%e5%ae%89%e8%a3%85%e8%b7%af%e5%be%84.png" width="0.5"/>
+</figure>
+
+<p>​	值得一提的是到这一步时会提示你安装Miniconda3的位置，默认安装到根目录下，按ENTER将执行默认设置，	也可以在后面输入你想安装的位置，比如我这里为了方便以后寻找安装到了用户文件夹下。</p>
+<h3 id="4-超级用户尝试使用">4 超级用户尝试使用</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">sudo su
+conda list
+<span class="nb">exit</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>​	由于刚刚Miniconda自动启动了conda init，并且我们是在超级用户的权限下安装的Miniconda，所以他自动加入了root用户的环境变量，直接输入命令就可以看到提示。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/%e6%a0%91%e8%8e%93%e6%b4%be%e5%ae%89%e8%a3%85miniconda/%e8%b6%85%e7%ba%a7%e7%94%a8%e6%88%b7.png"
+        data-srcset="/images/%e6%a0%91%e8%8e%93%e6%b4%be%e5%ae%89%e8%a3%85miniconda/%e8%b6%85%e7%ba%a7%e7%94%a8%e6%88%b7.png, /images/%e6%a0%91%e8%8e%93%e6%b4%be%e5%ae%89%e8%a3%85miniconda/%e8%b6%85%e7%ba%a7%e7%94%a8%e6%88%b7.png 1.5x, /images/%e6%a0%91%e8%8e%93%e6%b4%be%e5%ae%89%e8%a3%85miniconda/%e8%b6%85%e7%ba%a7%e7%94%a8%e6%88%b7.png 2x"
+        data-sizes="auto"
+        alt="/images/树莓派安装miniconda/超级用户.png"
+        title="image-20230213005659495" /></p>
+<h3 id="5-更改权限">5 更改权限</h3>
+<p>但是如果每次使用conda都要使用超级用户权限太过麻烦，所以我把他的权限更改给了用户（我默认使用的那一个）。</p>
+<ul>
+<li>首先进入你安装miniconda3的目录，比如默认的是在/root，如果在第3步改到了pi用户目录<font color='pink'>（pi是你的用户名，不知道你的用户名是啥的话看terminal绿色的提示符，xxx@raspberry，xxx就是你的用户名）</font>那么就是在/home/pi，注意是miniconda3的上级目录</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">cd</span> /home/pi
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>更改miniconda3文件的所有者</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">sudo su
+chown -R pi miniconda3
+<span class="nb">exit</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这里的<code>pi</code>就是你用户的名字，不输出任何东西就是更改成功了。</p>
+<h3 id="6-添加环境变量">6 添加环境变量</h3>
+<p>要在当前用户下使用conda，那么还必须把他的执行路径添加进环境变量。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">vim ~/.bashrc
+</code></pre></td></tr></table>
+</div>
+</div><p>进入<code>.bashrc</code>文件，如果提示没有vim的话用<code>nano ~/.bashrc</code>也可以。</p>
+<p>在文件的最后添加一行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">export</span> <span class="nx">PATH</span><span class="p">=</span><span class="s2">&#34;/home/pi/miniconda3/bin:$PATH&#34;</span><span class="err">
+</span></code></pre></td></tr></table>
+</div>
+</div><figure><img src="/images/%e6%a0%91%e8%8e%93%e6%b4%be%e5%ae%89%e8%a3%85miniconda/%e7%8e%af%e5%a2%83%e5%8f%98%e9%87%8f.png" height="1"/>
+</figure>
+
+<p>这里的pi也是用户名字。写完后输入<code>:wq</code>退出vim。</p>
+<div class="details admonition info open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw" aria-hidden="true"></i>Info<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">nano是先ctrl+o保存，再ctrl+x退出</div>
+        </div>
+    </div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">source</span> ~/.bashrc
+</code></pre></td></tr></table>
+</div>
+</div><p>应用更改。</p>
+<h3 id="7-尝试使用">7 尝试使用</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">conda
+</code></pre></td></tr></table>
+</div>
+</div><p>显示如下信息表示成功：</p>
+<figure><img src="/images/%e6%a0%91%e8%8e%93%e6%b4%be%e5%ae%89%e8%a3%85miniconda/%e8%af%95%e4%b8%80%e8%af%95.png" width="4"/>
+</figure>
+
+<ol start="8">
+<li>换源</li>
+</ol>
+<p>如果嫌安装packages慢的话可以换到清华源</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+conda config --set show_channel_urls yes
+conda update conda
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="结束">结束</h2>
+<p>转载请注明出处：<a href="www.liwenwu.space" rel="">www.liwenwu.space</a></p>
+<h2 id="参考文章">参考文章</h2>
+<ol>
+<li>
+<p><a href="https://blog.csdn.net/IT_lesliewu/article/details/124893143?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-0-124893143-blog-128620393.pc_relevant_3mothn_strategy_and_data_recovery&amp;spm=1001.2101.3001.4242.1&amp;utm_relevant_index=3" target="_blank" rel="noopener noreffer ">树莓派4B64位系统安装miniconda（折腾了几天终于解决）</a></p>
+</li>
+<li>
+<p><a href="https://blog.csdn.net/weixin_39589455/article/details/128620393" target="_blank" rel="noopener noreffer ">树莓派上如何安装anaconda/miniconda环境配置</a></p>
+</li>
+</ol></div><div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></div></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.89.4">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Liwen Wu</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/css/lightgallery-bundle.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/valine@1.5.0/dist/Valine.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.38.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/algoliasearch@4.13.1/dist/algoliasearch-lite.umd.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/lightgallery.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/thumbnail/lg-thumbnail.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lightgallery@2.5.0/plugins/zoom/lg-zoom.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{"valine":{"appId":"FpkMxm9zSRNG8P6n4JKQ7FS9-gzGzoHsz","appKey":"H9w5mhMzgjPY6WgszbHLaifX","avatar":"mp","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-google@14.0.0/img/google/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":false,"highlight":true,"lang":"en","pageSize":10,"placeholder":"Your comment ...","recordIP":true,"serverURLs":"https://fpkmxm9z.lc-cn-n1-shared.com","visitor":true}},"lightgallery":true,"search":{"algoliaAppID":"PASDMWALPK","algoliaIndex":"","algoliaSearchKey":"b42948e51daaa93df92381c8e2ac0f93","highlightTag":"em","maxResultLength":100,"noResultsFound":"No results found","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
