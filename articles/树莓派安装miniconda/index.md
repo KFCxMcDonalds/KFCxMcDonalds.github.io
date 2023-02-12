@@ -158,7 +158,39 @@ conda config --set show_channel_urls yes
 conda update conda
 ```
 
+## <font color="red">错误分析</font>
 
+成功安装miniconda3之后，如果想要使用创建好的虚拟环境，即：
+
+```shell
+conda activate test
+```
+可能会报如下错误：
+
+```shell
+CommandNotFoundError: Your shell has not been properly configured to use 'conda activate'.
+To initialize your shell, run
+ 
+    $ conda init <SHELL_NAME>
+ 
+Currently supported shells are:
+  - bash
+  - fish
+  - tcsh
+  - xonsh
+  - zsh
+  - powershell
+ 
+See 'conda init --help' for more information and options.
+ 
+IMPORTANT: You may need to close and restart your shell after running 'conda init
+```
+
+此时只需要根据提示初始化conda就可以，树莓派应该输入:
+```shell
+conda init bash
+```
+然后<font color='red'>重启terminal</font>，注意一定要重启一下，即可成功activate虚拟环境。
 
 ## 结束
 

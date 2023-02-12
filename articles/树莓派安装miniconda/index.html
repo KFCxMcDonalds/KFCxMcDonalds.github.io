@@ -28,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/KFCxMcDonalds.github.io\/articles\/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%89%E8%A3%85miniconda\/"
-        },"image": ["http:\/\/KFCxMcDonalds.github.io\/logo.png"],"genre": "articles","keywords": "RaspberryPi, Linux","wordcount":  1477 ,
+        },"image": ["http:\/\/KFCxMcDonalds.github.io\/logo.png"],"genre": "articles","keywords": "RaspberryPi, Linux","wordcount":  1677 ,
         "url": "http:\/\/KFCxMcDonalds.github.io\/articles\/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%89%E8%A3%85miniconda\/","datePublished": "2023-02-13T01:37:53+08:00","dateModified": "2023-02-13T01:37:53+08:00","license": "Copyright © 2022 Liwen Wu. All rights reserved.","publisher": {
             "@type": "Organization",
             "name": "LiwenWu","logo": "http:\/\/KFCxMcDonalds.github.io\/logo.png"},"author": {
@@ -310,7 +310,66 @@ conda config --set show_channel_urls yes
 conda update conda
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="结束">结束</h2>
+</div><h2 id="font-colorred错误分析font"><font color="red">错误分析</font></h2>
+<p>成功安装miniconda3之后，如果想要使用创建好的虚拟环境，即：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">conda activate <span class="nb">test</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>可能会报如下错误：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">CommandNotFoundError: Your shell has not been properly configured to use <span class="s1">&#39;conda activate&#39;</span>.
+To initialize your shell, run
+ 
+    $ conda init &lt;SHELL_NAME&gt;
+ 
+Currently supported shells are:
+  - bash
+  - fish
+  - tcsh
+  - xonsh
+  - zsh
+  - powershell
+ 
+See <span class="s1">&#39;conda init --help&#39;</span> <span class="k">for</span> more information and options.
+ 
+IMPORTANT: You may need to close and restart your shell after running <span class="err">&#39;</span>conda init
+</code></pre></td></tr></table>
+</div>
+</div><p>此时只需要根据提示初始化conda就可以，树莓派应该输入:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">conda init bash
+</code></pre></td></tr></table>
+</div>
+</div><p>然后<font color='red'>重启terminal</font>，注意一定要重启一下，即可成功activate虚拟环境。</p>
+<h2 id="结束">结束</h2>
 <p>转载请注明出处：<a href="www.liwenwu.space" rel="">www.liwenwu.space</a></p>
 <h2 id="参考文章">参考文章</h2>
 <ol>
