@@ -66,16 +66,105 @@ sudo bash Miniconda3-py37_4.9.2-Linux-aarch64.sh
 
 ​	文件名是刚才找到的一样的文件名。
 
+​	如果输入`sudo bash Miniconda3-py37_4.9.2-Linux-aarch64.sh`的话，即加了一个sudo命令，miniconda会自动安装给root用户，以后使用conda必须都要加`sudo`，很麻烦，而且会出现很多问题，这里建议<font color='red'>不使用sudo</font>，那么miniconda将会自动安装给当前用户，比如pi用户。
+
+​	下文都是基于安装给<font color='red'>当前用户</font>实现的，<font color='purple'>如果有读者使用了sudo，请直接跳到本文后面的《适用于使用sudo命令安装miniconda的读者》部分。</font>但之后的使用亲测依然会出很多问题，比如不用sudo就不能pip，pip安装的包不能在当前用户环境下使用等等，所以普通用户的话非常不建议用sudo安装给超级用户，除非有特殊需求。
+
 ### 3  **等待安装**
 
 ​	安装过程中可能需要输入一些字符。请根据提示进行。
 
 {{< figure src="/images/树莓派安装miniconda/安装路径.png" width=0.5 >}}
 
+​	值得一提的是到这一步时会提示你安装Miniconda3的位置，会默认安装到当前用户目录下，按ENTER将执行默认设置。（如果上一步用了sudo，那么默认位置是`/root/miniconda3`）
 
-​	值得一提的是到这一步时会提示你安装Miniconda3的位置，默认安装到根目录下，按ENTER将执行默认设置，	也可以在后面输入你想安装的位置，比如我这里为了方便以后寻找安装到了用户文件夹下。
 
-### 4 超级用户尝试使用
+
+ ### 4 添加环境变量
+
+要在当前用户下使用conda，那么还必须把他的执行路径添加进环境变量。
+
+```shell
+vim ~/.bashrc
+```
+
+进入`.bashrc`文件，如果提示没有vim的话用`nano ~/.bashrc`也可以。
+
+在文件的最后添加一行：
+
+```vim
+export PATH="/home/pi/miniconda3/bin:$PATH"
+```
+
+{{< figure src="/images/树莓派安装miniconda/环境变量.png" height=1 >}}
+
+这里的pi是用户名字，比如我的用户名是liwenwu，所以是图中所示路径。写完后输入`:wq`退出vim。
+
+{{< admonition type=info >}}
+nano是先ctrl+o保存，再ctrl+x退出
+{{< /admonition >}}
+
+``` shell
+source ~/.bashrc
+```
+
+应用更改。
+
+
+
+### 5 使用
+
+```shell
+conda list
+```
+即可看到输出conda已安装的包。
+
+#### 至此conda已经完成安装，并且当前用户可以正常使用所有conda命令。
+
+## <font color="red">错误分析</font>
+
+成功安装miniconda3之后，如果想要使用创建好的虚拟环境，即：
+
+```shell
+conda activate test
+```
+
+可能会报如下错误：
+
+```shell
+CommandNotFoundError: Your shell has not been properly configured to use 'conda activate'.
+To initialize your shell, run
+ 
+    $ conda init <SHELL_NAME>
+ 
+Currently supported shells are:
+  - bash
+  - fish
+  - tcsh
+  - xonsh
+  - zsh
+  - powershell
+ 
+See 'conda init --help' for more information and options.
+ 
+IMPORTANT: You may need to close and restart your shell after running 'conda init
+```
+
+此时只需要根据提示初始化conda就可以，树莓派应该输入:
+
+```shell
+conda init bash
+```
+
+然后<font color='red'>重启terminal</font>，注意一定要重启一下，即可成功activate虚拟环境。
+
+
+
+### <font color='blue'>下面部分适用于使用sudo命令安装miniconda的读者，注意，以下部分只是为了解决部分读者可能出现的问题，也是本人遇到的一些问题，并不是推荐大家使用。</font>
+
+### 使用sudo完成上述第2步后，接下部分：
+
+### 3 超级用户使用
 
 ```shell
 sudo su
@@ -83,31 +172,32 @@ conda list
 exit
 ```
 
-​	由于刚刚Miniconda自动启动了conda init，并且我们是在超级用户的权限下安装的Miniconda，所以他自动加入了root用户的环境变量，直接输入命令就可以看到提示。	
+由于刚刚Miniconda自动启动了conda init，并且我们是在超级用户的权限下安装的Miniconda，所以他自动加入了root用户的环境变量，直接输入命令就可以看到提示。
 
 ![image-20230213005659495](/images/树莓派安装miniconda/超级用户.png)
 
-### 5 更改权限
+### 4 更改权限
 
 但是如果每次使用conda都要使用超级用户权限太过麻烦，所以我把他的权限更改给了用户（我默认使用的那一个）。
 
--   首先进入你安装miniconda3的目录，比如默认的是在/root，如果在第3步改到了pi用户目录<font color='pink'>（pi是你的用户名，不知道你的用户名是啥的话看terminal绿色的提示符，xxx@raspberry，xxx就是你的用户名）</font>那么就是在/home/pi，注意是miniconda3的上级目录
+-   首先进入你安装miniconda3的目录，比如默认的是在/root，注意是miniconda3的上级目录
 
 ```shell
-cd /home/pi
+sudo su
+cd /root
 ```
 
 -   更改miniconda3文件的所有者
 
 ``` shell
-sudo su
+# sudo su
 chown -R pi miniconda3
 exit
 ```
 
 这里的`pi`就是你用户的名字，不输出任何东西就是更改成功了。
 
-### 6 添加环境变量
+### 5 添加环境变量
 
 要在当前用户下使用conda，那么还必须把他的执行路径添加进环境变量。
 
@@ -137,7 +227,7 @@ source ~/.bashrc
 
 应用更改。
 
-### 7 尝试使用
+### 6 尝试使用
 
 ``` shell
 conda
@@ -146,17 +236,6 @@ conda
 显示如下信息表示成功：
 
 {{< figure src="/images/树莓派安装miniconda/试一试.png" width=4 >}}
-
-8.   换源
-
-如果嫌安装packages慢的话可以换到清华源
-
-```shell
-conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
-conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
-conda config --set show_channel_urls yes
-conda update conda
-```
 
 ## <font color="red">错误分析</font>
 
@@ -191,6 +270,8 @@ IMPORTANT: You may need to close and restart your shell after running 'conda ini
 conda init bash
 ```
 然后<font color='red'>重启terminal</font>，注意一定要重启一下，即可成功activate虚拟环境。
+
+#### 更多关于sudo安装的错误分析请见文章xx。
 
 ## 结束
 

@@ -4,7 +4,51 @@
         <link>http://KFCxMcDonalds.github.io/tags/linux/</link>
         <description>Linux - Tag - Liwen</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>liwen.wu0821@outlook.com (Liwen Wu)</managingEditor>
-            <webMaster>liwen.wu0821@outlook.com (Liwen Wu)</webMaster><copyright>Copyright © 2022 Liwen Wu. All rights reserved.</copyright><lastBuildDate>Mon, 13 Feb 2023 01:37:53 &#43;0800</lastBuildDate><atom:link href="http://KFCxMcDonalds.github.io/tags/linux/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>liwen.wu0821@outlook.com (Liwen Wu)</webMaster><copyright>Copyright © 2022 Liwen Wu. All rights reserved.</copyright><lastBuildDate>Sun, 26 Feb 2023 00:02:53 &#43;0800</lastBuildDate><atom:link href="http://KFCxMcDonalds.github.io/tags/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>树莓派miniconda3 pip 报错 illegal instruction，运行程序显示No module named `xxx`</title>
+    <link>http://KFCxMcDonalds.github.io/articles/%E6%A0%91%E8%8E%93%E6%B4%BEminiconda3-pip-%E6%8A%A5%E9%94%99-illegal-instruction%E8%BF%90%E8%A1%8C%E7%A8%8B%E5%BA%8F%E6%98%BE%E7%A4%BAno-module-named-xxx/</link>
+    <pubDate>Sun, 26 Feb 2023 00:02:53 &#43;0800</pubDate>
+    <author>Liwen Wu</author>
+    <guid>http://KFCxMcDonalds.github.io/articles/%E6%A0%91%E8%8E%93%E6%B4%BEminiconda3-pip-%E6%8A%A5%E9%94%99-illegal-instruction%E8%BF%90%E8%A1%8C%E7%A8%8B%E5%BA%8F%E6%98%BE%E7%A4%BAno-module-named-xxx/</guid>
+    <description><![CDATA[<h1 id="miniconda3-pip-报错-illegal-instruction运行程序显示no-module-named-xxx">miniconda3 pip 报错 illegal instruction，运行程序显示No module named <code>xxx</code></h1>
+<h2 id="错误分析">错误分析</h2>
+<p>全部是本人踩的坑，以下文章内容全部关于miniconda3。不想看的直接跳到<font color='red'>解决方法</font>部分。</p>
+<p>本人是在树莓派上安装了vscode来写代码，然后发现，使用miniconda3创建的虚拟环境运行程序时会遇到如下问题（包括但不限于）：</p>
+<ol>
+<li>不能在虚拟环境里用pip安装package。<code>pip install xxx</code>，提示illegal instruction。
+我就想有没有可能miniconda3虚拟环境没有自动给我安装pip，于是我想手动安装，输入了<code>conda install pip</code>，但是提示我已经安装过了。输入<code>conda list</code>果然已经有pip了，就很扯，有为啥不能用。</li>
+<li>然后我发现可以使用<code>sudo pip</code>。但是！pip安装的包，还是不能被import：如果vscode直接run或者terminal输入<code>python xxx.py</code>运行程序会提示No module named &lsquo;xxx&rsquo;。<code>sudo python xxx.py</code>就可以正常使用。</li>
+</ol>
+<p>于是显然，问题肯定是出在<code>sudo</code>上，sudo是什么呢？超级用户权限，于是我打开了我之前安装miniconda3过程记录的文章<a href="https://www.liwenwu.space/articles/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%89%E8%A3%85miniconda/" target="_blank" rel="noopener noreffer ">【树莓派】树莓派安装miniconda 2023版</a>（现在错误已更改）发现，我安装miniconda时是用sudo权限安装的；但是我明明用<code>chown -R</code>更改了miniconda3文件夹下所有文件的权限到当前用户而不是超级用户了，为什么当前用户不能使用conda的某些命令呢。这一部分我还是没有搞清楚，总感觉是权限分配没成功，但是管他的，我已经找到完美解决上述的方法了，暂时先不去深究原因了。</p>
+<h2 id="解决方法">解决方法</h2>
+<p>简单粗暴，重新安装miniconda3，根除问题。</p>
+<ol>
+<li>删除miniconda3文件夹
+懒得找conda卸载命令了，直接删文件夹。找到你当年安装的miniconda3文件，默认是在<code>/root/miniconda3</code>。</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">sudu</span> <span class="n">su</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">root</span>
+<span class="n">rm</span> <span class="o">-</span><span class="n">r</span> <span class="n">miniconda3</span>
+<span class="n">exit</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>重新启动一下terminal。
+2. 重新安装miniconda3
+这一部分比较多，请见文章<a href="https://www.liwenwu.space/articles/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%89%E8%A3%85miniconda/" target="_blank" rel="noopener noreffer ">【树莓派】树莓派安装miniconda 2023版</a>的<font color='red'>主要步骤</font>部分，注意一定不要再用sudo安装了。
+3. 问题解决
+是的，解决了，至少我的树莓派上完全解决了，vscode也能用了，terminal也能用了。</p>
+<h2 id="结束">结束</h2>
+<p>转载请注明出处：<a href="www.liwenwu.space" rel="">www.liwenwu.space</a></p>]]></description>
+</item>
+<item>
     <title>树莓派安装miniconda</title>
     <link>http://KFCxMcDonalds.github.io/articles/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%89%E8%A3%85miniconda/</link>
     <pubDate>Mon, 13 Feb 2023 01:37:53 &#43;0800</pubDate>
@@ -80,57 +124,15 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>​	文件名是刚才找到的一样的文件名。</p>
+<p>​	如果输入<code>sudo bash Miniconda3-py37_4.9.2-Linux-aarch64.sh</code>的话，即加了一个sudo命令，miniconda会自动安装给root用户，以后使用conda必须都要加<code>sudo</code>，很麻烦，而且会出现很多问题，这里建议<font color='red'>不使用sudo</font>，那么miniconda将会自动安装给当前用户，比如pi用户。</p>
+<p>​	下文都是基于安装给<font color='red'>当前用户</font>实现的，<font color='purple'>如果有读者使用了sudo，请直接跳到本文后面的《适用于使用sudo命令安装miniconda的读者》部分。</font>但之后的使用亲测依然会出很多问题，比如不用sudo就不能pip，pip安装的包不能在当前用户环境下使用等等，所以普通用户的话非常不建议用sudo安装给超级用户，除非有特殊需求。</p>
 <h3 id="3--等待安装">3  <strong>等待安装</strong></h3>
 <p>​	安装过程中可能需要输入一些字符。请根据提示进行。</p>
 <figure>
 </figure>
 
-<p>​	值得一提的是到这一步时会提示你安装Miniconda3的位置，默认安装到根目录下，按ENTER将执行默认设置，	也可以在后面输入你想安装的位置，比如我这里为了方便以后寻找安装到了用户文件夹下。</p>
-<h3 id="4-超级用户尝试使用">4 超级用户尝试使用</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">sudo su
-conda list
-<span class="nb">exit</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>​	由于刚刚Miniconda自动启动了conda init，并且我们是在超级用户的权限下安装的Miniconda，所以他自动加入了root用户的环境变量，直接输入命令就可以看到提示。</p>
-<p></p>
-<h3 id="5-更改权限">5 更改权限</h3>
-<p>但是如果每次使用conda都要使用超级用户权限太过麻烦，所以我把他的权限更改给了用户（我默认使用的那一个）。</p>
-<ul>
-<li>首先进入你安装miniconda3的目录，比如默认的是在/root，如果在第3步改到了pi用户目录<font color='pink'>（pi是你的用户名，不知道你的用户名是啥的话看terminal绿色的提示符，xxx@raspberry，xxx就是你的用户名）</font>那么就是在/home/pi，注意是miniconda3的上级目录</li>
-</ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">cd</span> /home/pi
-</code></pre></td></tr></table>
-</div>
-</div><ul>
-<li>更改miniconda3文件的所有者</li>
-</ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">sudo su
-chown -R pi miniconda3
-<span class="nb">exit</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>这里的<code>pi</code>就是你用户的名字，不输出任何东西就是更改成功了。</p>
-<h3 id="6-添加环境变量">6 添加环境变量</h3>
+<p>​	值得一提的是到这一步时会提示你安装Miniconda3的位置，会默认安装到当前用户目录下，按ENTER将执行默认设置。（如果上一步用了sudo，那么默认位置是<code>/root/miniconda3</code>）</p>
+<h3 id="4-添加环境变量">4 添加环境变量</h3>
 <p>要在当前用户下使用conda，那么还必须把他的执行路径添加进环境变量。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -153,7 +155,7 @@ chown -R pi miniconda3
 </div><figure>
 </figure>
 
-<p>这里的pi也是用户名字。写完后输入<code>:wq</code>退出vim。</p>
+<p>这里的pi是用户名字，比如我的用户名是liwenwu，所以是图中所示路径。写完后输入<code>:wq</code>退出vim。</p>
 <div class="details admonition info open">
         <div class="details-summary admonition-title">
             <i class="icon fas fa-info-circle fa-fw" aria-hidden="true"></i>Info<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
@@ -171,38 +173,18 @@ chown -R pi miniconda3
 </code></pre></td></tr></table>
 </div>
 </div><p>应用更改。</p>
-<h3 id="7-尝试使用">7 尝试使用</h3>
+<h3 id="5-使用">5 使用</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">conda
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">conda list
 </code></pre></td></tr></table>
 </div>
-</div><p>显示如下信息表示成功：</p>
-<figure>
-</figure>
-
-<ol start="8">
-<li>换源</li>
-</ol>
-<p>如果嫌安装packages慢的话可以换到清华源</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
-conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
-conda config --set show_channel_urls yes
-conda update conda
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="font-colorred错误分析font"><font color="red">错误分析</font></h2>
+</div><p>即可看到输出conda已安装的包。</p>
+<h4 id="至此conda已经完成安装并且当前用户可以正常使用所有conda命令">至此conda已经完成安装，并且当前用户可以正常使用所有conda命令。</h4>
+<h2 id="font-colorred错误分析font"><font color="red">错误分析</font></h2>
 <p>成功安装miniconda3之后，如果想要使用创建好的虚拟环境，即：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -261,6 +243,168 @@ IMPORTANT: You may need to close and restart your shell after running <span clas
 </code></pre></td></tr></table>
 </div>
 </div><p>然后<font color='red'>重启terminal</font>，注意一定要重启一下，即可成功activate虚拟环境。</p>
+<h3 id="font-colorblue下面部分适用于使用sudo命令安装miniconda的读者注意以下部分只是为了解决部分读者可能出现的问题也是本人遇到的一些问题并不是推荐大家使用font"><font color='blue'>下面部分适用于使用sudo命令安装miniconda的读者，注意，以下部分只是为了解决部分读者可能出现的问题，也是本人遇到的一些问题，并不是推荐大家使用。</font></h3>
+<h3 id="使用sudo完成上述第2步后接下部分">使用sudo完成上述第2步后，接下部分：</h3>
+<h3 id="3-超级用户使用">3 超级用户使用</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">sudo su
+conda list
+<span class="nb">exit</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>由于刚刚Miniconda自动启动了conda init，并且我们是在超级用户的权限下安装的Miniconda，所以他自动加入了root用户的环境变量，直接输入命令就可以看到提示。</p>
+<p></p>
+<h3 id="4-更改权限">4 更改权限</h3>
+<p>但是如果每次使用conda都要使用超级用户权限太过麻烦，所以我把他的权限更改给了用户（我默认使用的那一个）。</p>
+<ul>
+<li>首先进入你安装miniconda3的目录，比如默认的是在/root，注意是miniconda3的上级目录</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">sudo su
+<span class="nb">cd</span> /root
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>更改miniconda3文件的所有者</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># sudo su</span>
+chown -R pi miniconda3
+<span class="nb">exit</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>这里的<code>pi</code>就是你用户的名字，不输出任何东西就是更改成功了。</p>
+<h3 id="5-添加环境变量">5 添加环境变量</h3>
+<p>要在当前用户下使用conda，那么还必须把他的执行路径添加进环境变量。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">vim ~/.bashrc
+</code></pre></td></tr></table>
+</div>
+</div><p>进入<code>.bashrc</code>文件，如果提示没有vim的话用<code>nano ~/.bashrc</code>也可以。</p>
+<p>在文件的最后添加一行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="nx">export</span> <span class="nx">PATH</span><span class="p">=</span><span class="s2">&#34;/home/pi/miniconda3/bin:$PATH&#34;</span><span class="err">
+</span></code></pre></td></tr></table>
+</div>
+</div><figure>
+</figure>
+
+<p>这里的pi也是用户名字。写完后输入<code>:wq</code>退出vim。</p>
+<div class="details admonition info open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw" aria-hidden="true"></i>Info<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">nano是先ctrl+o保存，再ctrl+x退出</div>
+        </div>
+    </div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">source</span> ~/.bashrc
+</code></pre></td></tr></table>
+</div>
+</div><p>应用更改。</p>
+<h3 id="6-尝试使用">6 尝试使用</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">conda
+</code></pre></td></tr></table>
+</div>
+</div><p>显示如下信息表示成功：</p>
+<figure>
+</figure>
+
+<h2 id="font-colorred错误分析font-1"><font color="red">错误分析</font></h2>
+<p>成功安装miniconda3之后，如果想要使用创建好的虚拟环境，即：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">conda activate <span class="nb">test</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>可能会报如下错误：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">CommandNotFoundError: Your shell has not been properly configured to use <span class="s1">&#39;conda activate&#39;</span>.
+To initialize your shell, run
+ 
+    $ conda init &lt;SHELL_NAME&gt;
+ 
+Currently supported shells are:
+  - bash
+  - fish
+  - tcsh
+  - xonsh
+  - zsh
+  - powershell
+ 
+See <span class="s1">&#39;conda init --help&#39;</span> <span class="k">for</span> more information and options.
+ 
+IMPORTANT: You may need to close and restart your shell after running <span class="err">&#39;</span>conda init
+</code></pre></td></tr></table>
+</div>
+</div><p>此时只需要根据提示初始化conda就可以，树莓派应该输入:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">conda init bash
+</code></pre></td></tr></table>
+</div>
+</div><p>然后<font color='red'>重启terminal</font>，注意一定要重启一下，即可成功activate虚拟环境。</p>
+<h4 id="更多关于sudo安装的错误分析请见文章xx">更多关于sudo安装的错误分析请见文章xx。</h4>
 <h2 id="结束">结束</h2>
 <p>转载请注明出处：<a href="www.liwenwu.space" rel="">www.liwenwu.space</a></p>
 <h2 id="参考文章">参考文章</h2>
