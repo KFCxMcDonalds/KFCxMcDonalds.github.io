@@ -3,8 +3,6 @@
 
 <!--more-->
 
-# miniconda3 pip 报错 illegal instruction，运行程序显示No module named `xxx`
-
 ## 错误分析
 全部是本人踩的坑，以下文章内容全部关于miniconda3。不想看的直接跳到<font color='red'>解决方法</font>部分。
 

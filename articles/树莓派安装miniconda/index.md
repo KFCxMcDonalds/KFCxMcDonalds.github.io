@@ -271,7 +271,7 @@ conda init bash
 ```
 然后<font color='red'>重启terminal</font>，注意一定要重启一下，即可成功activate虚拟环境。
 
-#### 更多关于sudo安装的错误分析请见文章xx。
+#### 更多关于sudo安装的错误分析请见文章[树莓派miniconda3 pip 报错 illegal instruction，运行程序显示No module named `xxx`](https://www.liwenwu.space/articles/%E6%A0%91%E8%8E%93%E6%B4%BEminiconda3-pip-%E6%8A%A5%E9%94%99-illegal-instruction%E8%BF%90%E8%A1%8C%E7%A8%8B%E5%BA%8F%E6%98%BE%E7%A4%BAno-module-named-xxx/)。
 
 ## 结束
 
