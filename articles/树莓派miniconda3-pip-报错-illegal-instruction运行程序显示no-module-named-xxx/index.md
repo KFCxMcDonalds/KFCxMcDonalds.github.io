@@ -3,6 +3,14 @@
 
 <!--more-->
 
+## 2023.2.26更新
+
+用了下面的解决方法后，又发现一个问题，只能在conda的base环境正常使用，create新的环境后依然，不可以，pip，提示illegal instruction。我去github上找了下，发现很多人有这个问题，然后我trace了一下pip的命令，发现fail在打开一个文件`openat(AT_FDCWD, "/home/liwenwu/miniconda3/envs/RPI_exps/lib/python3.7/lib-dynload/../../libcrypto.so.1.1", O_RDONLY|O_CLOEXEC) = 3`
+
+github issue里[有一个老哥](https://github.com/conda/conda/issues/10723#issuecomment-971603856)用`/usr/lib/libcrypto.so.1.1`文件替换`~/pi/miniconda3/lib/libcrypto.so.1.1`之后解决了，是conda自己的文件corrupt了。
+
+但是我的树莓派，第二个文件有，第一个文件没有，我不知所措了。总之，miniconda有问题，别用了，吐了。
+
 ## 错误分析
 全部是本人踩的坑，以下文章内容全部关于miniconda3。不想看的直接跳到<font color='red'>解决方法</font>部分。
 
