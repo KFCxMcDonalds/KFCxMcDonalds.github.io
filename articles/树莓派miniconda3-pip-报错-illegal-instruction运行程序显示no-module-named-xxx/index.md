@@ -9,7 +9,7 @@
 
 github issue里[有一个老哥](https://github.com/conda/conda/issues/10723#issuecomment-971603856)用`/usr/lib/libcrypto.so.1.1`文件替换`~/pi/miniconda3/lib/libcrypto.so.1.1`之后解决了，是conda自己的文件corrupt了。
 
-但是我的树莓派，第二个文件有，第一个文件没有，我不知所措了。总之，miniconda有问题，别用了，吐了。
+但是我的树莓派，第二个文件有，第一个文件没有，我不知所措了。总之，miniconda在aarch64上有问题，别用了，吐了。
 
 ## 错误分析
 全部是本人踩的坑，以下文章内容全部关于miniconda3。不想看的直接跳到<font color='red'>解决方法</font>部分。
