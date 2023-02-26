@@ -13,14 +13,11 @@
 
 用`/usr/lib/aarch64-linux-gnu/libcrypto.so.1.1`替换`~/miniconda3/lib/libcrypto.so.1.1`解决。
 
-<img src="/images/树莓派miniconda3 pip 报错 illegal instruction，运行程序显示No module named `xxx`/libcrypto.png" />
+<img src="/images/树莓派anaconda3pip报错/libcrypto.png" />
 
 #### 解释一下其他情况怎么使用这个方法：
 1. 对于树莓派4B64位系统，第一个文件的位置应该跟我一样。但是如果是其他系统，可能会稍有不同，比如github issue上有人是在`/usr/lib/libcrypto.so.1.1`，有人是`/usr/lib64/libcrypto.so.1.1`，所以根据自己的系统可能需要找一下。
 2. 麻烦的点在第二个位置。都知道conda是有一个默认环境base的，所以上述被替换的文件，对应的是<font color=purple>base</font>环境的文件，即替换之后，base环境可以正常使用pip了，但是之前创建的其他虚拟环境还是illegal instruction。<font color=purple>需要将其他虚拟环境里的文件也手动替换</font>，文件位置在`~/miniconda3/envs/test/lib/libcrypto.so.1.1`。其中`test`替换为你虚拟环境的名字。
-
-<img src="/images/树莓派miniconda3 pip 报错 illegal instruction，运行程序显示No module named `xxx`/虚拟环境.png" />
-
 3. 也就是说，以后每次新建一个conda虚拟环境，都要手动替换一次。其他更方便的方法暂时没有找到，找到了再更新吧。
 
 

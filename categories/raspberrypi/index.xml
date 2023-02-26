@@ -10,10 +10,34 @@
     <pubDate>Sun, 26 Feb 2023 00:02:53 &#43;0800</pubDate>
     <author>Liwen Wu</author>
     <guid>http://KFCxMcDonalds.github.io/articles/%E6%A0%91%E8%8E%93%E6%B4%BEminiconda3-pip-%E6%8A%A5%E9%94%99-illegal-instruction%E8%BF%90%E8%A1%8C%E7%A8%8B%E5%BA%8F%E6%98%BE%E7%A4%BAno-module-named-xxx/</guid>
-    <description><![CDATA[<h2 id="2023226更新">2023.2.26更新</h2>
+    <description><![CDATA[<h2 id="2023226-1418更新">2023.2.26 14:18更新</h2>
+<p>我又来了，太一波三折了，我好像解决了，就是比较麻烦。
+原因是miniconda的libcrypto.so.1.1文件出错，需要手动替换。</p>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw" aria-hidden="true"></i>Tip<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">假设miniconda安装位置是在<code>~/miniconda3</code>，如果不是的话后面的路径需要做相应修改。</div>
+        </div>
+    </div>
+<p>用<code>/usr/lib/aarch64-linux-gnu/libcrypto.so.1.1</code>替换<code>~/miniconda3/lib/libcrypto.so.1.1</code>解决。</p>
+
+<h4 id="解释一下其他情况怎么使用这个方法">解释一下其他情况怎么使用这个方法：</h4>
+<ol>
+<li>对于树莓派4B64位系统，第一个文件的位置应该跟我一样。但是如果是其他系统，可能会稍有不同，比如github issue上有人是在<code>/usr/lib/libcrypto.so.1.1</code>，有人是<code>/usr/lib64/libcrypto.so.1.1</code>，所以根据自己的系统可能需要找一下。</li>
+<li>麻烦的点在第二个位置。都知道conda是有一个默认环境base的，所以上述被替换的文件，对应的是<font color=purple>base</font>环境的文件，即替换之后，base环境可以正常使用pip了，但是之前创建的其他虚拟环境还是illegal instruction。<font color=purple>需要将其他虚拟环境里的文件也手动替换</font>，文件位置在<code>~/miniconda3/envs/test/lib/libcrypto.so.1.1</code>。其中<code>test</code>替换为你虚拟环境的名字。</li>
+</ol>
+
+<ol start="3">
+<li>也就是说，以后每次新建一个conda虚拟环境，都要手动替换一次。其他更方便的方法暂时没有找到，找到了再更新吧。</li>
+</ol>
+<h2 id="2023226-0100更新">2023.2.26 01:00更新</h2>
 <p>用了下面的解决方法后，又发现一个问题，只能在conda的base环境正常使用，create新的环境后依然，不可以，pip，提示illegal instruction。我去github上找了下，发现很多人有这个问题，然后我trace了一下pip的命令，发现fail在打开一个文件<code>openat(AT_FDCWD, &quot;/home/liwenwu/miniconda3/envs/RPI_exps/lib/python3.7/lib-dynload/../../libcrypto.so.1.1&quot;, O_RDONLY|O_CLOEXEC) = 3</code></p>
 <p>github issue里<a href="https://github.com/conda/conda/issues/10723#issuecomment-971603856" target="_blank" rel="noopener noreffer ">有一个老哥</a>用<code>/usr/lib/libcrypto.so.1.1</code>文件替换<code>~/pi/miniconda3/lib/libcrypto.so.1.1</code>之后解决了，是conda自己的文件corrupt了。</p>
 <p>但是我的树莓派，第二个文件有，第一个文件没有，我不知所措了。总之，miniconda在aarch64上有问题，别用了，吐了。</p>
+<div id="id-1"><h1 id="------以下为原文------">&mdash;&mdash;以下为原文&mdash;&mdash;</h1>
+</div>
 <h2 id="错误分析">错误分析</h2>
 <p>全部是本人踩的坑，以下文章内容全部关于miniconda3。不想看的直接跳到<font color='red'>解决方法</font>部分。</p>
 <p>本人是在树莓派上安装了vscode来写代码，然后发现，使用miniconda3创建的虚拟环境运行程序时会遇到如下问题（包括但不限于）：</p>

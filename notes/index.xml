@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Notes on Liwen</title>
+    <link>http://KFCxMcDonalds.github.io/notes/</link>
+    <description>Recent content in Notes on Liwen</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <managingEditor>liwen.wu0821@outlook.com (Liwen Wu)</managingEditor>
+    <webMaster>liwen.wu0821@outlook.com (Liwen Wu)</webMaster>
+    <copyright>Copyright © 2022 Liwen Wu. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 26 Feb 2023 15:07:38 +0800</lastBuildDate><atom:link href="http://KFCxMcDonalds.github.io/notes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>优秀文章备忘录</title>
+      <link>http://KFCxMcDonalds.github.io/notes/%E4%BC%98%E7%A7%80%E6%96%87%E7%AB%A0%E5%A4%87%E5%BF%98%E5%BD%95/</link>
+      <pubDate>Sun, 26 Feb 2023 15:07:38 +0800</pubDate>
+      <author>liwen.wu0821@outlook.com (Liwen Wu)</author>
+      <guid>http://KFCxMcDonalds.github.io/notes/%E4%BC%98%E7%A7%80%E6%96%87%E7%AB%A0%E5%A4%87%E5%BF%98%E5%BD%95/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
