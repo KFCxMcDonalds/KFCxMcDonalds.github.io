@@ -212,7 +212,9 @@
 </div><p>即可看到输出conda已安装的包。</p>
 <h4 id="至此conda已经完成安装并且当前用户可以正常使用所有conda命令">至此conda已经完成安装，并且当前用户可以正常使用所有conda命令。</h4>
 <h2 id="font-colorred错误分析font"><font color="red">错误分析</font></h2>
-<p>成功安装miniconda3之后，如果想要使用创建好的虚拟环境，即：</p>
+<p><div id="id-1"><h3 id="1">1</h3>
+</div>
+成功安装miniconda3之后，如果想要使用创建好的虚拟环境，即：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -270,6 +272,9 @@ IMPORTANT: You may need to close and restart your shell after running <span clas
 </code></pre></td></tr></table>
 </div>
 </div><p>然后<font color='red'>重启terminal</font>，注意一定要重启一下，即可成功activate虚拟环境。</p>
+<div id="id-2"><h3 id="2">2</h3>
+</div>
+<p>如果使用conda虚拟环境是出现pip相关问题，请参考文章：<a href="https://www.liwenwu.space/articles/%E6%A0%91%E8%8E%93%E6%B4%BEminiconda3-pip-%E6%8A%A5%E9%94%99-illegal-instruction%E8%BF%90%E8%A1%8C%E7%A8%8B%E5%BA%8F%E6%98%BE%E7%A4%BAno-module-named-xxx/" target="_blank" rel="noopener noreffer ">树莓派miniconda3 pip 报错 illegal instruction</a>，可完美解决。</p>
 <h3 id="font-colorblue下面部分适用于使用sudo命令安装miniconda的读者注意以下部分只是为了解决部分读者可能出现的问题也是本人遇到的一些问题并不是推荐大家使用font"><font color='blue'>下面部分适用于使用sudo命令安装miniconda的读者，注意，以下部分只是为了解决部分读者可能出现的问题，也是本人遇到的一些问题，并不是推荐大家使用。</font></h3>
 <h3 id="使用sudo完成上述第2步后接下部分">使用sudo完成上述第2步后，接下部分：</h3>
 <h3 id="3-超级用户使用">3 超级用户使用</h3>

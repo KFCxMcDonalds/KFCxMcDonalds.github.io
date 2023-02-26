@@ -123,6 +123,9 @@ conda list
 
 ## <font color="red">错误分析</font>
 
+{{< style "color:skyblue;text-align:center" >}}
+### 1
+{{< /style >}}
 成功安装miniconda3之后，如果想要使用创建好的虚拟环境，即：
 
 ```shell
@@ -158,7 +161,11 @@ conda init bash
 
 然后<font color='red'>重启terminal</font>，注意一定要重启一下，即可成功activate虚拟环境。
 
+{{< style "color:skyblue;text-align:center" >}}
+### 2
+{{< /style >}}
 
+如果使用conda虚拟环境是出现pip相关问题，请参考文章：[树莓派miniconda3 pip 报错 illegal instruction](https://www.liwenwu.space/articles/%E6%A0%91%E8%8E%93%E6%B4%BEminiconda3-pip-%E6%8A%A5%E9%94%99-illegal-instruction%E8%BF%90%E8%A1%8C%E7%A8%8B%E5%BA%8F%E6%98%BE%E7%A4%BAno-module-named-xxx/)，可完美解决。
 
 ### <font color='blue'>下面部分适用于使用sudo命令安装miniconda的读者，注意，以下部分只是为了解决部分读者可能出现的问题，也是本人遇到的一些问题，并不是推荐大家使用。</font>
 
