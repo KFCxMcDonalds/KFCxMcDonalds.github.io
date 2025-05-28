@@ -1,0 +1,91 @@
+baseURL = "https://woofle.space"
+languageCode = "en-us"
+title = "Five Space"
+copyright = "LiwenWu" # cactus will use title if copyright is not set
+# disqusShortname = "example" # Used when comments is enabled. Cactus will use site title if not set
+# googleAnalytics = "UA-1234-5"
+
+
+# summaryLength = 2
+
+# Main menu which appears below site header.
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "Blog"
+url = "/blogs"
+weight = 2
+
+[[menu.main]]
+name = "Thought"
+url = "/thoughts"
+weight = 3
+
+[[menu.main]]
+name = "Tags"
+url = "/tags"
+weight = 4
+
+[markup]
+  [markup.tableOfContents]
+    endLevel = 4
+    ordered = false
+    startLevel = 2
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = false
+    noClasses = true
+    style = "dracula"
+    tabWidth = 4
+
+[params]
+
+  colortheme = "classic" # dark, light, white, or classic
+  rss = true # generate rss feed. default value is false
+  # googleAnalyticsAsync = true # use asynchronous tracking. Synchronous tracking by default
+  showAllPostsArchive = true # default
+
+  # Home page settings
+  description = "我意识到比起失去一段时间，我更害怕失去当时的感受"
+  mainSection = "blogs" # your main section
+  mainSectionTitle = "Blog"
+  showAllPostsOnHomePage = true # default
+  postsOnHomePage = 5 # this option will be ignored if showAllPostsOnHomePage is set to true
+  tagsOverview = true # show tags overview by default.
+#   showProjectsList = false # show projects list by default (if projects data file exists).
+#   projectsUrl = "https://github.com/gohugoio" # title link for projects list
+
+  # https://gohugo.io/functions/format/#hugo-date-and-time-templating-reference
+  dateFormat = "2006-01-02" # default
+
+  # Post page settings
+  show_updated = true # default
+  showReadTime = true # default
+
+  [params.comments]
+    enabled = true # default
+    engine = "utterances" # 改为utterances
+    [params.comments.utterances]
+      repo = "KFCxMcDonalds/KFCxMcDonalds.github.io" # 更新为你的实际仓库
+      label = "thoughts" # 用于标识thoughts评论的标签
+      theme = "github-light"
+    # [params.comments.cactuscomments]
+    #   siteName = "your_cactus_comments_sitename" # see https://cactus.chat/ on how to register your site name
+    #   #serverUrl = "" # Defaults to https://matrix.cactus.chat:8448 (Cactus Chat public server)
+    #   #serverName = "" # Defaults to cactus.chat
+
+  # the value of name should be an valid font awesome icon name (brands type)
+  # https://fontawesome.com/icons?d=gallery&s=brands
+  [[params.social]]
+    name = "github"
+    link = "https://github.com/KFCxMcDonalds"
+  [[params.social]]
+    name = "email"
+    link = "liwen.wu0821@outlook.com"

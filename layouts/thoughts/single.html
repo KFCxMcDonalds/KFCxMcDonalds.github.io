@@ -1,0 +1,11 @@
+{{ define "main" }}
+<section class="container thought">
+  <article>
+    <header>
+      <h1>{{ .Title }}</h1>
+    </header>
+    {{ .Content }}
+    {{ partial "comments.html" . }}
+  </article>
+</section>
+{{ end }} 
