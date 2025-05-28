@@ -1,7 +1,7 @@
 ---
-title: "想法"
+title: "Thoughts"
 date: 2023-12-01
 type: "thoughts"
 ---
 
-这里是我的短想法和日常思考。通过下方评论框，我可以随时添加新的想法。 
+This page is for my personal thoughts only. Please comment on my other posts if you'd like to discuss something with me.
