@@ -1,1 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Categories on Five Space</title><link>https://woofle.space/categories/</link><description>Recent content in Categories on Five Space</description><generator>Hugo</generator><language>en-us</language><copyright>LiwenWu</copyright><lastBuildDate>Sat, 11 Feb 2023 12:54:53 +0800</lastBuildDate><atom:link href="https://woofle.space/categories/index.xml" rel="self" type="application/rss+xml"/><item><title>RaspberryPi</title><link>https://woofle.space/categories/raspberrypi/</link><pubDate>Sat, 11 Feb 2023 12:54:53 +0800</pubDate><guid>https://woofle.space/categories/raspberrypi/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Five Space</title>
+    <link>https://woofle.space/categories/</link>
+    <description>Recent content in Categories on Five Space</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <copyright>LiwenWu</copyright>
+    <atom:link href="https://woofle.space/categories/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>
