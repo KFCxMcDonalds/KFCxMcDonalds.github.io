@@ -2,7 +2,7 @@ name: Deploy Hugo site to Pages
 
 on:
   push:
-    branches: ["main"]
+    branches: ["master"]
   workflow_dispatch:
 
 permissions:
@@ -14,16 +14,12 @@ concurrency:
   group: "pages"
   cancel-in-progress: true
 
-defaults:
-  run:
-    shell: bash
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: recursive
 
@@ -36,11 +32,30 @@ jobs:
       - name: Build
         run: hugo --minify
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
+      # 检查构建内容
+      - name: Check build output
+        run: |
+          echo "公共目录大小:"
+          du -sh public/
+          echo "最大的10个文件:"
+          find public/ -type f -exec du -h {} \; | sort -rh | head -n 10
+          echo "目录结构:"
+          find public/ -type d | sort
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+      - name: Process public directory
+        run: |
+          cd public
+          # 查找并移除符号链接
+          find . -type l -delete
+          # 确保权限正确
+          find . -type f -exec chmod 644 {} \;
+          find . -type d -exec chmod 755 {} \;
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
 
@@ -53,4 +68,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1 
+        uses: actions/deploy-pages@v4
