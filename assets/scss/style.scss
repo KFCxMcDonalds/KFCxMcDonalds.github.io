@@ -51,20 +51,27 @@ body {
     @include hyphens(manual);
   }
   a {
+    color: $color-link;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  a.blog-item {
     color: $color-text;
     text-decoration: none;
 
-    @include underline(5px, $color-text);
-
     &:hover {
-      background-image: linear-gradient(transparent, transparent 4px, $color-link 4px, $color-link);
+      text-decoration: underline;
     }
   }
   a.icon {
+    color: $color-text;
     background: none;
 
     &:hover {
-      color: $color-link;
+      text-decoration: none;
     }
   }
   h1 a,
@@ -187,15 +194,23 @@ pre {
     display: block;
     padding: 0;
     border: none;
+    background: transparent;
+    color: inherit; // 继承pre的颜色
+    font-size: inherit;
+    line-height: inherit;
+    border-radius: 0;
+    -webkit-border-radius: 0;
   }
 }
-
-code {
+:not(pre) > code {
   font-family: $font-family-mono;
-  padding: 0 5px;
-  border: 1px dotted $color-border;
-  border-radius: 2px;
-  -webkit-border-radius: 2px;
+  font-size: 0.9em;
+  padding: 0.2em 0.4em;
+  background: rgba(175, 184, 193, 0.2);
+  color: #e34c26;
+  border-radius: 4px;
+  line-height: 1.4;
+  -webkit-border-radius: 4px;
 }
 
 .highlight {
@@ -228,4 +243,8 @@ code {
       }
     }
   }
+}
+
+.no-posts {
+  color: $color-meta;
 }
