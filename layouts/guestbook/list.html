@@ -1,10 +1,10 @@
 {{ define "main" }}
-<section class="container thought">
+<section class="container guestbook">
   <article>
-    <header>
+    <div style="text-align: center;">
       <h1>{{ .Title }}</h1>
-    </header>
-    {{ .Content }}
+      {{ .Content }}
+    </div>
     {{ partial "comments.html" . }}
   </article>
 </section>
